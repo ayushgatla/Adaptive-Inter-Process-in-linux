@@ -385,13 +385,13 @@ Use this checklist during execution to guarantee milestone completion:
   - [x] Confirm baseline latency hierarchy matches Danyliuk (2026) Table 1
   - [x] Confirm 2 syscalls/op and voluntary context switches on blocking baselines
 
-- [ ] Phase 2: FAS-IPC Lock-Free Shared Memory Fast Path
-  - [ ] Implement `include/aipc_fas_ring.h` with `alignas(64)` cache isolation
-  - [ ] Implement `src/aipc_fas_ring.c` with AHSP hybrid spin-park (200 pause iters)
-  - [ ] Run structural alignment test (verify 0 false sharing)
-  - [ ] Execute 5M message stress test with zero corruption
-  - [ ] Confirm small-message latency < 400 ns (beating Danyliuk's 850 ns)
-  - [ ] Confirm 0 syscalls/op in steady-state streaming
+- [x] Phase 2: FAS-IPC Lock-Free Shared Memory Fast Path
+  - [x] Implement `include/aipc_fas_ring.h` with `alignas(64)` cache isolation
+  - [x] Implement `src/aipc_fas_ring.c` with AHSP hybrid spin-park (200 pause iters)
+  - [x] Run structural alignment test (verify 0 false sharing)
+  - [x] Execute 5M message stress test with zero corruption
+  - [x] Confirm small-message latency < 400 ns (beating Danyliuk's 850 ns)
+  - [x] Confirm 0 syscalls/op in steady-state streaming
 
 - [ ] Phase 3: Workload Telemetry & Unified Channel Layer
   - [ ] Implement `include/aipc.h` unified API
