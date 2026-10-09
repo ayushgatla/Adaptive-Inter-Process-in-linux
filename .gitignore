@@ -1,0 +1,16 @@
+# Build directories & objects
+build/
+*.o
+*.so
+*.a
+
+# Binaries
+bench_baselines
+test_fas_ring
+test_unified
+bench_matrix
+
+# Temporary files
+*.swp
+*~
+.DS_Store
