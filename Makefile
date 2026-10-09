@@ -8,9 +8,13 @@ BENCH_DIR = bench
 BUILD_DIR = build
 RESULTS_DIR = results
 
-OBJS = $(BUILD_DIR)/aipc_bench.o $(BUILD_DIR)/aipc_baselines.o
+BASE_OBJS = $(BUILD_DIR)/aipc_bench.o
+BASELINE_OBJS = $(BASE_OBJS) $(BUILD_DIR)/aipc_baselines.o
+FAS_OBJS = $(BASE_OBJS) $(BUILD_DIR)/aipc_fas_ring.o
 
-all: bench_baselines
+TARGETS = bench_baselines test_fas_ring
+
+all: $(TARGETS)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
@@ -21,13 +25,16 @@ $(RESULTS_DIR):
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(BUILD_DIR)/bench_baselines.o: $(BENCH_DIR)/bench_baselines.c | $(BUILD_DIR)
+$(BUILD_DIR)/%.o: $(BENCH_DIR)/%.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bench_baselines: $(OBJS) $(BUILD_DIR)/bench_baselines.o | $(RESULTS_DIR)
+bench_baselines: $(BASELINE_OBJS) $(BUILD_DIR)/bench_baselines.o | $(RESULTS_DIR)
+	$(CC) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+test_fas_ring: $(FAS_OBJS) $(BUILD_DIR)/test_fas_ring.o | $(RESULTS_DIR)
 	$(CC) $(CFLAGS) $^ $(LDFLAGS) -o $@
 
 clean:
-	rm -rf $(BUILD_DIR) bench_baselines
+	rm -rf $(BUILD_DIR) $(TARGETS)
 
 .PHONY: all clean
