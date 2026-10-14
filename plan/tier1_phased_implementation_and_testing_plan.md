@@ -393,23 +393,23 @@ Use this checklist during execution to guarantee milestone completion:
   - [x] Confirm small-message latency < 400 ns (beating Danyliuk's 850 ns)
   - [x] Confirm 0 syscalls/op in steady-state streaming
 
-- [ ] Phase 3: Workload Telemetry & Unified Channel Layer
-  - [ ] Implement `include/aipc.h` unified API
-  - [ ] Implement `src/aipc_selector.c` (EWMA tracker & cost function)
-  - [ ] Implement `src/aipc_channel.c` (multi-transport dispatcher & demuxer)
-  - [ ] Execute dynamic interleaved payload test (64 B to 64 KB)
-  - [ ] Confirm zero message loss during dynamic transport transitions
+- [x] Phase 3: Workload Telemetry & Unified Channel Layer
+  - [x] Implement `include/aipc.h` unified API
+  - [x] Implement `src/aipc_selector.c` (EWMA tracker & cost function)
+  - [x] Implement `src/aipc_channel.c` (multi-transport dispatcher & demuxer)
+  - [x] Execute dynamic interleaved payload test (64 B to 64 KB)
+  - [x] Confirm zero message loss during dynamic transport transitions
 
-- [ ] Phase 4: Full Experimental Matrix & Adaptation Gain
-  - [ ] Execute full sweep (64 B to 64 KB, 100 to 1M msg/s)
-  - [ ] Measure mixed-workload throughput and latency
-  - [ ] Verify Adaptation Gain G_adapt >= 1.8x over static choices
-  - [ ] Export raw metrics to `results/matrix_results.csv`
+- [x] Phase 4: Full Experimental Matrix & Adaptation Gain
+  - [x] Execute full sweep (64 B to 64 KB, 100 to 1M msg/s)
+  - [x] Measure mixed-workload throughput and latency
+  - [x] Verify Adaptation Gain G_adapt >= 1.8x over static choices
+  - [x] Export raw metrics to `results/matrix_results.csv`
 
-- [ ] Phase 5: Visualization & Defense Artifacts
-  - [ ] Generate Fig 1: Latency comparison vs Danyliuk 2026
-  - [ ] Generate Fig 2: Empirical crossover contour map
-  - [ ] Generate Fig 3: Tail latency CDF (P50 to P99.9)
-  - [ ] Generate Fig 4: Adaptation Gain validation chart
-  - [ ] Compile defense summary table and final report
+- [x] Phase 5: Visualization & Defense Artifacts
+  - [x] Generate Fig 1: Latency comparison vs Danyliuk 2026
+  - [x] Generate Fig 2: Empirical crossover contour map
+  - [x] Generate Fig 3: Tail latency CDF (P50 to P99.9)
+  - [x] Generate Fig 4: Adaptation Gain validation chart
+  - [x] Compile defense summary table and final report
 ```

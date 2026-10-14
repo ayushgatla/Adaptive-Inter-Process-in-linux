@@ -43,7 +43,7 @@ void fas_ring_init(fas_ring_t *ring) {
     atomic_init(&ring->waiting_readers, 0);
 }
 
-int fas_ring_send(fas_ring_t *ring, const void *data, uint32_t len) {
+int fas_ring_send_flags(fas_ring_t *ring, const void *data, uint32_t len, uint32_t flags) {
     if (!ring || !data || len > FAS_SLOT_MAX_SIZE) {
         return -1;
     }
@@ -64,7 +64,7 @@ int fas_ring_send(fas_ring_t *ring, const void *data, uint32_t len) {
 
     uint32_t slot_idx = tail & (FAS_RING_SLOTS - 1);
     ring->slots[slot_idx].len = len;
-    ring->slots[slot_idx].flags = 0;
+    ring->slots[slot_idx].flags = flags;
     memcpy((void *)ring->slots[slot_idx].payload, data, len);
 
     // Release store commits the payload before advancing tail
@@ -80,6 +80,10 @@ int fas_ring_send(fas_ring_t *ring, const void *data, uint32_t len) {
     }
 
     return 0;
+}
+
+int fas_ring_send(fas_ring_t *ring, const void *data, uint32_t len) {
+    return fas_ring_send_flags(ring, data, len, 0);
 }
 
 int fas_ring_try_send(fas_ring_t *ring, const void *data, uint32_t len) {

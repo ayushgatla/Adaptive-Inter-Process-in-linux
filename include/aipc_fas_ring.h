@@ -142,6 +142,7 @@ void fas_ring_init(fas_ring_t *ring);
  * @return 0 on success, negative error code on invalid parameters
  */
 int fas_ring_send(fas_ring_t *ring, const void *data, uint32_t len);
+int fas_ring_send_flags(fas_ring_t *ring, const void *data, uint32_t len, uint32_t flags);
 
 /**
  * @brief Non-blocking enqueue. Returns immediately with -1 if ring is full.

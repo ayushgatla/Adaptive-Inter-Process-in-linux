@@ -1,0 +1,5 @@
+workload_type,transport,avg_lat_ns,p50_ns,p90_ns,p99_ns,throughput_mps,throughput_mbps,adaptation_gain,latency_reduction_pct
+Mixed_80_20,Static Pipe,2077.58,1821.50,1912.20,3124.19,240664.30,763.83,1.00,0.00
+Mixed_80_20,Static UNIX Socket,1754.94,1591.37,1948.07,2541.06,284909.77,904.25,1.00,15.53
+Mixed_80_20,Static POSIX MQ,2671.44,2520.57,2631.28,3737.32,187164.87,594.03,0.66,-28.58
+Mixed_80_20,Adaptive A-IPC Engine,932.59,905.20,943.90,1284.29,536143.12,1701.63,1.88,46.86
